@@ -21,8 +21,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 466,
-  "iteration": 1684513069216,
+  "id": 3458,
+  "iteration": 1723475423209,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1075,84 +1075,28 @@
       {
         "hide": 2,
         "name": "asset",
-        "query": "asset",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "input_features",
-        "query": "input_features",
+        "query": "evaluate,{{device}}.{{assetPath}}",
         "skipUrlSync": false,
         "type": "constant"
       },
       {
         "hide": 2,
         "name": "prediction",
-        "query": "Prediction",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "anomaly_score",
-        "query": "Anomaly_Score_Percent",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "anomaly_det_analog",
-        "query": "Anomaly_Detection_Analog",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "anomaly_bool",
-        "query": "Anomaly_Detection_Boolean",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "anomaly_det_ll",
-        "query": "Anomaly_Detection_Low_Limit_Threshold",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "anomaly_det_hl",
-        "query": "Anomaly_Detection_High_Limit_Threshold",
+        "query": "find-matches, *Prediction",
         "skipUrlSync": false,
         "type": "constant"
       },
       {
         "hide": 2,
         "name": "probability",
-        "query": "Prediction_Probability",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "tag_ranking",
-        "query": "Tag_Ranking_Percent",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "best_score_training",
-        "query": "Best_Score_Training",
+        "query": "find-matches, Prediction_Probability*",
         "skipUrlSync": false,
         "type": "constant"
       },
       {
         "hide": 2,
         "name": "model_status",
-        "query": "Status_",
+        "query": "find-matches, Model Status (1-ok 2-error 3-warning)*",
         "skipUrlSync": false,
         "type": "constant"
       },
@@ -1186,9 +1130,13 @@
       },
       {
         "current": {
-          "selected": false,
-          "text": "input_features",
-          "value": "input_features"
+          "selected": true,
+          "text": [
+            "{{{inputs_no_quotes}}}"
+          ],
+          "value": [
+            "{{{inputs_no_quotes}}}"
+          ]
         },
         "hide": 0,
         "includeAll": false,
@@ -1197,21 +1145,30 @@
         "name": "x_axis",
         "options": [
           {
+            "selected": false,
+            "text": "evaluate",
+            "value": "evaluate"
+          },
+          {
             "selected": true,
-            "text": "input_features",
-            "value": "input_features"
+            "text": "{{{inputs_no_quotes}}}",
+            "value": "{{{inputs_no_quotes}}}"
           }
         ],
-        "query": "input_features",
+        "query": "evaluate,{{{inputs_no_quotes}}}",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {
-          "selected": false,
-          "text": "input_features",
-          "value": "input_features"
+          "selected": true,
+          "text": [
+            "{{{inputs_no_quotes}}}"
+          ],
+          "value": [
+            "{{{inputs_no_quotes}}}"
+          ]
         },
         "hide": 0,
         "includeAll": false,
@@ -1220,21 +1177,30 @@
         "name": "y_axis",
         "options": [
           {
+            "selected": false,
+            "text": "evaluate",
+            "value": "evaluate"
+          },
+          {
             "selected": true,
-            "text": "input_features",
-            "value": "input_features"
+            "text": "{{{inputs_no_quotes}}}",
+            "value": "{{{inputs_no_quotes}}}"
           }
         ],
-        "query": "input_features",
+        "query": "evaluate,{{{inputs_no_quotes}}}",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {
-          "selected": false,
-          "text": "input_features",
-          "value": "input_features"
+          "selected": true,
+          "text": [
+            "{{{inputs_no_quotes}}}"
+          ],
+          "value": [
+            "{{{inputs_no_quotes}}}"
+          ]
         },
         "hide": 0,
         "includeAll": false,
@@ -1243,90 +1209,60 @@
         "name": "z_axis",
         "options": [
           {
+            "selected": false,
+            "text": "evaluate",
+            "value": "evaluate"
+          },
+          {
             "selected": true,
-            "text": "input_features",
-            "value": "input_features"
+            "text": "{{{inputs_no_quotes}}}",
+            "value": "{{{inputs_no_quotes}}}"
           }
         ],
-        "query": "input_features",
+        "query": "evaluate,{{{inputs_no_quotes}}}",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
       },
       {
         "hide": 2,
+        "name": "input_features",
+        "query": "evaluate, {{{inputs}}}",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
         "name": "retraining_trigger",
-        "query": "retraining_trigger",
+        "query": "evaluate, {{{retraining_trigger}}}",
         "skipUrlSync": false,
         "type": "constant"
       },
       {
         "hide": 2,
         "name": "data_quality_outlier",
-        "query": "outlier",
+        "query": "find-matches, *_outlier",
         "skipUrlSync": false,
         "type": "constant"
       },
       {
         "hide": 2,
         "name": "data_quality_out_of_range",
-        "query": "out_of_range",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "data_drift",
-        "query": "Data_Drift",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "data_drift_score",
-        "query": "Data_Drift_Score",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "dataset_drift",
-        "query": "Dataset_Drift",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "target_drift",
-        "query": "Target_Drift",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "target_drift_score",
-        "query": "Target_Drift_Score",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "prediction_drift",
-        "query": "Prediction_Drift",
-        "skipUrlSync": false,
-        "type": "constant"
-      },
-      {
-        "hide": 2,
-        "name": "prediction_drift_score",
-        "query": "Prediction_Drift_Score",
+        "query": "find-matches, *_out_of_range",
         "skipUrlSync": false,
         "type": "constant"
       },
       {
         "hide": 2,
         "name": "retraining_status",
-        "query": "retraining_status",
+        "query": "evaluate, {{{retraining_status}}}",
+        "skipUrlSync": false,
+        "type": "constant"
+      },
+      {
+        "hide": 2,
+        "name": "data_status",
+        "query": "find-matches, Data Status (1-ok 2x-error 3x-warning)*",
         "skipUrlSync": false,
         "type": "constant"
       }
@@ -1340,6 +1276,6 @@
   "timezone": "",
   "title": "my_custom_clustering",
   "uid": "1667827118463",
-  "version": 4,
+  "version": 7,
   "weekStart": ""
 }
